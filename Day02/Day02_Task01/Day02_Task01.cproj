@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>Day02_Task02</AssemblyName>
-    <Name>Day02_Task02</Name>
-    <RootNamespace>Day02_Task02</RootNamespace>
+    <AssemblyName>Day02_Task01</AssemblyName>
+    <Name>Day02_Task01</Name>
+    <RootNamespace>Day02_Task01</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
