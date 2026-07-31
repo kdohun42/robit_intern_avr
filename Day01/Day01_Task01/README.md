@@ -123,7 +123,7 @@ ISR(INT3_vect){
 
 | 정면 동작 모습 |
 | :---: | 
-| https://drive.google.com/drive/folders/1FxS-o_upBDG0bxLEOcIdYU01ccSJoVhb
+| https://drive.google.com/drive/folders/1vFoVpR7XVCh9ET8URL_HVTAjc8a4ldXs?usp=drive_link
 
 ---
 
