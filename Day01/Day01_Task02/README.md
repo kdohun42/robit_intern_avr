@@ -1,4 +1,4 @@
-# ATmega128 과제 및 프로젝트
+# Day01_Task02
 
 > **광운대학교 로봇학부**  
 > **작성자:** 김도훈
@@ -7,12 +7,12 @@
 ---
 
 ## 1. 개요 (Overview)
-본 과제는 ATmega128 마이크로컨트롤러를 활용하여 주요 주변장치(Peripherals)를 제어하고 센서 데이터를 수신/처리하는 시스템을 구현하는 것을 목표로 함.
+본 과제는 ATmega128 마이크로컨트롤러를 활용하여 8개의 LED로 0.1초마다 증가하는 2진 카운터를 구현하고, 4개의 외부 인터럽트(INT0~INT3) 입력에 따라 LED 이동 방향과 동작 형태를 변경하거나 카운터를 초기화하는 프로그램을 구현하는 것을 목적으로 한다.
 
 ### 핵심 목표
-* ATmega128 레지스터 설정을 통한 주변장치 제어
-* 센서 및 외부 모듈과의 통신 (USART / SPI / I2C 등) 및 데이터 처리
-* 타이머/카운터를 활용한 PWM 출력 및 인터럽트 제어
+*8개의 LED를 이용하여 0.1초마다 증가하는 2진 카운터를 구현한다.
+*INT0~INT2 외부 인터럽트를 이용하여 LED의 우측 이동, 좌측 이동, 왕복 이동 동작을 구현한다.
+*INT3 외부 인터럽트를 이용하여 LED 2진 카운터를 초기화하고, 인터럽트 처리 방법을 이해한다.
 
 ---
 
@@ -122,7 +122,7 @@ ISR(INT4_vect){
 
 | 정면 동작 모습 |
 | :---: | 
-| ![Hardware Setup](https://drive.google.com/drive/folders/1FxS-o_upBDG0bxLEOcIdYU01ccSJoVhb)
+| https://drive.google.com/drive/folders/1FxS-o_upBDG0bxLEOcIdYU01ccSJoVhb
 
 ---
 
