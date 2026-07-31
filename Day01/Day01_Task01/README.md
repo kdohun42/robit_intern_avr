@@ -124,7 +124,7 @@ ISR(INT3_vect){
 
 | 정면 동작 모습 |
 | :---: | 
-| ![Hardware Setup](https://drive.google.com/drive/folders/1FxS-o_upBDG0bxLEOcIdYU01ccSJoVhb)
+| https://drive.google.com/drive/folders/1FxS-o_upBDG0bxLEOcIdYU01ccSJoVhb
 
 ---
 
