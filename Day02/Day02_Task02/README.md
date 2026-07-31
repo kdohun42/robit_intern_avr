@@ -111,8 +111,7 @@ uint8_t switch_d_pressed(uint8_t pin)
 ### 동작 사진 / 영상
 
 | 정면 동작 모습 |
-| :---: | 
-| https://drive.google.com/drive/folders/17oH6pEp4PQMTKcmM4A9Slx8wekH6DrxP
+https://drive.google.com/drive/folders/17oH6pEp4PQMTKcmM4A9Slx8wekH6DrxP
 
 ---
 
