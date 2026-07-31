@@ -78,7 +78,8 @@ uint8_t switch_e_pressed(uint8_t pin)
 	
 	return 0; // 스위치가 눌리지 않았음을 반환
 }
-
+```
+```c
 // D 포트 스위치가 한 번 눌렸는지 확인
 uint8_t switch_d_pressed(uint8_t pin)
 {
@@ -98,7 +99,7 @@ uint8_t switch_d_pressed(uint8_t pin)
 	return 0; // 스위치가 눌리지 않았음을 반환
 }
 ---
-
+```
 ## 6. 동작 설명 및 결과 (Results)
 
 ### 동작 시나리오
