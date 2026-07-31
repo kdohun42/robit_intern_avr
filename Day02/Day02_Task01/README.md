@@ -98,7 +98,7 @@ uint16_t adc_read(uint8_t channel)
 
 | 정면 동작 모습 |
 | :---: | 
-| ![Hardware Setup](https://drive.google.com/drive/folders/17oH6pEp4PQMTKcmM4A9Slx8wekH6DrxP)
+| https://drive.google.com/drive/folders/17oH6pEp4PQMTKcmM4A9Slx8wekH6DrxP
 
 ---
 
