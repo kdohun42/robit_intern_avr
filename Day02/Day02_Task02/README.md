@@ -1,4 +1,4 @@
-# ATmega128 과제 및 프로젝트 템플릿
+# Day02_Task02
 
 > **광운대학교 로봇학부**  
 > **작성자:** 김도훈
@@ -7,12 +7,12 @@
 ---
 
 ## 1. 개요 (Overview)
-본 과제는 ATmega128 마이크로컨트롤러를 활용하여 주요 주변장치(Peripherals)를 제어하고 센서 데이터를 수신/처리하는 시스템을 구현하는 것을 목표로 함.
+본 과제는 ATmega128과 4개의 스위치를 활용하여 덧셈, 뺄셈, 곱셈, 나눗셈이 가능한 간단한 계산기를 구현하는 것을 목적으로 한다. 각 스위치를 이용해 피연산자 A와 B의 값을 변경하고 사칙연산자를 선택한 뒤, 계산 결과를 LCD에 출력한다. 
 
 ### 핵심 목표
-* ATmega128 레지스터 설정을 통한 주변장치 제어
-* 센서 및 외부 모듈과의 통신 (USART / SPI / I2C 등) 및 데이터 처리
-* 타이머/카운터를 활용한 PWM 출력 및 인터럽트 제어
+* 스위치 입력을 이용하여 피연산자 A와 B의 값을 1씩 증가시킨다.
+* 스위치를 누를 때마다 덧셈, 뺄셈, 곱셈, 나눗셈 연산자를 순서대로 변경한다. 
+* 선택한 연산을 수행하고 계산식과 결과를 LCD에 출력한다.
 
 ---
 
@@ -36,6 +36,7 @@
 [ATmega128]                 [Target Component]
  PORTA (PA0 ~ PA7)   ----->   8-Bit LED
  PE4 / PE5 / PD4 / PD5 -----> Tact Switch
+
 ```
 
 ### 주요 회로 특징
@@ -77,7 +78,8 @@ uint8_t switch_e_pressed(uint8_t pin)
 	
 	return 0; // 스위치가 눌리지 않았음을 반환
 }
-
+```
+```c
 // D 포트 스위치가 한 번 눌렸는지 확인
 uint8_t switch_d_pressed(uint8_t pin)
 {
@@ -97,7 +99,7 @@ uint8_t switch_d_pressed(uint8_t pin)
 	return 0; // 스위치가 눌리지 않았음을 반환
 }
 ---
-
+```
 ## 6. 동작 설명 및 결과 (Results)
 
 ### 동작 시나리오
@@ -110,8 +112,7 @@ uint8_t switch_d_pressed(uint8_t pin)
 ### 동작 사진 / 영상
 
 | 정면 동작 모습 |
-| :---: | 
-| ![Hardware Setup](https://drive.google.com/drive/folders/17oH6pEp4PQMTKcmM4A9Slx8wekH6DrxP)
+https://drive.google.com/drive/folders/17oH6pEp4PQMTKcmM4A9Slx8wekH6DrxP
 
 ---
 
