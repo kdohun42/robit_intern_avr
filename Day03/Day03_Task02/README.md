@@ -70,9 +70,9 @@ GND                 -------->  LED, 스위치, UART 공통 GND
 > 구현부(.c), 선언부(.h)만 구조에 표기함.
 
 ```text
-├─ UART_LED_Control/
-│   ├── main.c       # UART 통신, LED 제어 및 외부 인터럽트 처리
-└── README.md
+├─ Day03_Task02
+│   ├── main.c # UART 통신, LED 제어 및 외부 인터럽트 처리
+│   ├── README.md      
 ```
 
 ---
