@@ -71,9 +71,9 @@ GND                 -------->  USB to UART 모듈 GND
 > 구현부(.c), 선언부(.h)만 구조에 표기함.
 
 ```text
-├─ Day03_Task04/
-│   ├── Day03_Task04.c   # Software UART 송수신 및 문자열 출력
-└── README.md
+├─ Day03_Task04
+│   ├── main.c   # Software UART 송수신 및 문자열 출력
+│   ├── README.md
 ```
 
 ---
