@@ -171,7 +171,7 @@ uint16_t ADC_ReadAverage(void)
 
 uint16_t Dynamixel_UpdateCRC(
 uint16_t crc_accum,
-const uint8_t *data,
+uint8_t *data,
 uint16_t data_size)
 {
 	uint16_t i;
@@ -202,7 +202,7 @@ uint16_t data_size)
 
 void Dynamixel_SendWritePacket(
 uint16_t address,
-const uint8_t *data,
+uint8_t *data,
 uint8_t data_length)
 {
 	uint8_t body[16];
@@ -366,7 +366,7 @@ uint16_t value2)
 	return value2 - value1;
 }
 
-void LCD_WriteLine(uint8_t row, const char *text)
+void LCD_WriteLine(uint8_t row, char *text)
 {
 	char line[17];
 	uint8_t i;
