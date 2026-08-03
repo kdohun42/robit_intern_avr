@@ -18,7 +18,7 @@ static void i2c_init(void)
 {
 	TWSR = 0x00; // I2C 분주비 1로 설정
 	TWBR = 72; // I2C 통신 속도를 약 100kHz로 설정
-	TWCR = (1 << TWEN); // I2C 기능 활성화
+	TWCR = (1 << TWEN); 
 }
 
 

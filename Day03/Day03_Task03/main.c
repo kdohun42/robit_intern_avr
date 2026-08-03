@@ -128,17 +128,11 @@ void ADC_Init(void)
 	(1 << ADPS2) |
 	(1 << ADPS1) |
 	(1 << ADPS0);
-
-	// ADC 안정화 대기
 	_delay_ms(1);
 
 	// 첫 번째 ADC 변환 시작
 	ADCSRA |= (1 << ADSC);
-
-	// 첫 번째 ADC 변환 완료 대기
 	while (ADCSRA & (1 << ADSC));
-
-	// 첫 번째 ADC 결과 버리기
 	(void)ADC;
 }
 
@@ -146,11 +140,7 @@ uint16_t ADC_Read(void)
 {
 	// ADC 변환 시작
 	ADCSRA |= (1 << ADSC);
-
-	// ADC 변환 완료 대기
 	while (ADCSRA & (1 << ADSC));
-
-	// ADC 결과 반환
 	return ADC;
 }
 
@@ -305,8 +295,6 @@ uint8_t data_length)
 
 	// MAX485를 수신 모드로 변경
 	RS485_ReceiveMode();
-
-	// Dynamixel Status Packet 수신 대기
 	_delay_ms(3);
 
 	// 수신된 Status Packet 제거
