@@ -72,9 +72,9 @@ GND                 -------->  PSD 센서 GND
 > 구현부(.c), 선언부(.h)만 구조에 표기함.
 
 ```text
-├─ PSD_Moving_Average/
+├─ Day04_Task04
 │   ├── main.c       # ADC 측정, 이동 평균 필터, 거리 계산 및 UART 출력
-└── README.md
+│   ├── README.md
 ```
 
 ---

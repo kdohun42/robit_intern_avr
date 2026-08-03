@@ -85,11 +85,11 @@ I2C 통신 핀             <-------> 16×2 I2C LCD
 > 구현부(.c), 선언부(.h)만 구조에 표기함.
 
 ```text
-├─ Dynamixel_ADC_Control/
+├─ Day03_Task03
 │   ├── main.c       # ADC, USART, Dynamixel 패킷 및 메인 제어 코드
 │   ├── i2c_lcd.c    # I2C LCD 제어 함수 구현
 │   ├── i2c_lcd.h    # I2C LCD 함수 선언
-└── README.md
+│   ├──  README.md
 ```
 
 ---
@@ -996,6 +996,7 @@ POSITION: 1023
 
 LCD의 첫 번째 줄에는 PC 입력으로 설정한 목표 속도가 표시되고, 두 번째 줄에는 가변저항에서 읽은 목표 위치가 표시됨.
 
+<<<<<<< HEAD
 ### 동작 영상
 |                  동작 영상                 |
 | :------------------------------------: |
