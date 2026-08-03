@@ -17,9 +17,9 @@ ATmega128의 Timer/Counter 1과 3은 0부터 65535까지 셀 수 있는 16비트
 
 # 3. TIMER/COUNTER 1, 3 관련 레지스터
 
-## 3-1. 제어 레지스터 (TCCRnA, TCCRnB, TCCnC)
+## 3-1. 제어 레지스터 (TCCRnA, TCCRnB, TCCRnC)
 
-타이머/카운터의 제어 레지스터는 TCCRnA, TCCRnB, TCCnC 이렇게 세개가 있다. (여기서 n은 1과 3이다.)
+타이머/카운터의 제어 레지스터는 TCCRnA, TCCRnB, TCCRnC 이렇게 세개가 있다. (여기서 n은 1과 3이다.)
 
 TCCRnA 레지스터는 Timer/Counter Control Register A로 모드 설정, 신호 출력, 비트 설정, 클럭 신호의 prescaler(분주기) 설정이 가능하다.
 
@@ -33,21 +33,19 @@ TCCRnA 레지스터는 Timer/Counter Control Register A로 모드 설정, 신호
 5. Phase and Frequency Correct PWM Mode
 ```
 
-<img src="image.png" width="200">
+<img src="./image/image.png" width="200">
 
-타이머/카운터를 사용할 때는 위의 다섯가지 모드 중 한 모드를 선택하여 사용한다. 모드를 선택할 때는 TCCRnA과 TCCRnB의 Waveform Generation Mode인 WGMn3, WGMn2, WGMn1, WGMn0 비트를 사용해서 위의 표와 같이 모드를 설정한다.
+TCCRnA 레지스터는 출력 비교 핀 OCnA, OCnB, OCnC의 동작을 설정하는 COM 비트와 타이머의 동작 모드를 선택하는 WGM 비트를 포함한다. TCCRnB 레지스터는 WGM 상위 비트, 입력 캡처 설정 비트, 그리고 타이머에 공급되는 클럭과 분주비를 선택하는 CSn2~CSn0 비트를 포함한다. TCCRnC 레지스터는 강제 출력 비교 기능을 설정하는 FOCnA, FOCnB, FOCnC 비트를 포함하며, 이 기능은 비PWM 모드에서 사용된다.
 
-또한 타이머1에는 파형을 출력할 수 있는 기능이 있다. 이 파형은 OC1A, OC1B, OC1C 핀을 통해서 외부로 출력된다. . 각 모드에 출력되는 신호에 대한 설정은 COM00, COM01 비트를 이용해서 설정한다. 
+타이머/카운터를 사용할 때는 위의 다섯가지 모드 중 한 모드를 선택하여 사용한다. 모드를 선택할 때는 TCCRnA과 TCCRnB의 Waveform Generation Mode인 WGMn3, WGMn2, WGMn1, WGMn0 비트를 사용해서 위의 표와 같이 모드를 설정한다. 또한 타이머1에는 파형을 출력할 수 있는 기능이 있다. 이 파형은 OC1A, OC1B, OC1C 핀을 통해서 외부로 출력된다. 각 모드에 출력되는 신호에 대한 설정은 COM00, COM01 비트를 이용해서 설정한다. 
 
 다음은 5가지 모드를 설정하는 비트 값들이다.
 
-<img src="image-3.png" width= "200" height="300"> <img src="image-2.png" width="200" height="300">  <img src="image-4.png" width="200" height="300">
+<img src="./image/image-3.png" width= "200" height="300"> <img src="./image/image-2.png" width="200" height="300">  <img src="./image/image-4.png" width="200" height="300">
 
-8비트 타이머와 마찬가지로 16비트 타이머도 분주기를 설정가능하다. 분주기는 TCCRnB의 CS02, CS01, CS00 비트를 이용해 설정한다.
+## 3-2. 카운터 레지스터(TCNTnH,TCNTnL)
 
-## 3-2. 카운터 레지스터(TCNTnH,     TCNTnL)
-
-<img src="image-5.png" width= "300">
+<img src="./image/image-5.png" width= "300">
 
 이 레지스터는 Timer/Counter n HIGH, LOW로 직접 타이머를 카운트하는 레지스터이다. 타이머 1, 3은 16비트이기 때문에 이 레지스터도 상위 8비트 레지스터, 하위 8비트 레지스터 2개로 나뉜다. 여기서 상위 레지스터는 TCNTnH이고 하위 레지스터는 
 TCNTnL이다.
@@ -71,7 +69,7 @@ TCNT1 = 0x1234 // 하나의 16비트
 
 ## 3-3. 출력 비교 레지스터(OCR1AH, OCR1AL, OCR1BH, OCR1BL, OCR1CH, OCR1CL
 
-<img src="image-6.png" width="300">
+<img src="./image/image-6.png" width="300">
 
 이 레지스터는 Output Compara Register로 위의에서 설명한 카운터 레지스터를 비교하기 위해서 사용되는 레지스터이다. 이 레지스터 또한 상위 8비트 레지스터, 하위 8비트 레지스터가 짝을 지어서 16비트를 만들어낸다.
 
@@ -91,13 +89,15 @@ TCNT1H == OCR1AH;
 
 ## 3-4. 입력 캡쳐 레지스터(ICR1H, ICR1L)
 
-<img src="image-7.png" width="300">
+<img src="./image/image-7.png" width="300">
 
-이 레지스터는 Input Capture Register로 8비트 타이머에는 없고 16비트 타이머에만 있는 레지스터이다. 입력 캡쳐는 입력 핀 ICP1에 신호가 입력되었을 때 발생하고 이때 카운터 레지스터의 값이 입력 캡쳐 레지스터로 복사된다
+이 레지스터는 Input Capture Register로 8비트 타이머에는 없고 16비트 타이머에만 있는 레지스터이다. 입력 캡쳐는 입력 핀 ICP1에 신호가 입력되었을 때 발생하고 이때 카운터 레지스터의 값이 입력 캡쳐 레지스터로 복사된다.
+입력 캡처가 발생하는 신호의 에지는 TCCRnB 레지스터의 ICESn 비트로 선택할 수 있다. ICESn이 0이면 ICRn 핀의 하강 에지에서 입력 캡처가 발생하고 1이면 상승 에지에서 입력 캡처가 발생한다. 입력 캡처가 발생하면 해당 순간의 TCNTn 값이 ICRn 레지스터에 자동으로 복사된다. 따라서 외부 신호의 주기, 펄스 폭 또는 두 신호 사이의 시간을 측정하는 데 사용할 수 있다.
+
 
 ## 3-5. 인터럽트 설정 레지스터(TIMSK, ETIMSK)
 
-<img src="image-10.png" width="300"><img src="image-11.png" width="300">
+<img src="./image/image-10.png" width="300"><img src="./image/image-11.png" width="300">
 
 TIMSK와 ETIMSK 레지스터는 Timer/Counter Interrupt Mask Register와 Extended Timer/Counter interrupt Mask로 타이머/카운터 인터럽트를 활성화 하는 레지스터이다.
 
@@ -117,8 +117,8 @@ TIMSK와 ETIMSK 레지스터는 Timer/Counter Interrupt Mask Register와 Extende
 
 ## 3-6. 플래그 레지스터(TIFR, ETIFR)
 
-<img src="image-8.png" width="300">
-<img src="image-9.png" width="300">
+<img src="./image/image-8.png" width="300">
+<img src="./image/image-9.png" width="300">
 
 TIFR와 ETIFR 레지스터는 Timer/Counter Interrupt Flag Register와 Extended Timer/Counter interrupt Flag Register로 인터럽트가 발생한 것을 나타내는 레지스터이다. 인터럽트가 발생하면 TIFR, ETIFR의 해당 비트의 값은 1로 설정한다.
 
@@ -164,3 +164,4 @@ ISR(TIMER1_COMPA_vect)
     PORTB = 0xFF; // 타이머값이 15624가 되면 실행
 }
 ```
+
