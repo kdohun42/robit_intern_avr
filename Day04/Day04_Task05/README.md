@@ -69,9 +69,9 @@ GND                 -------->  서보모터 및 UART 공통 GND
 > 구현부(.c), 선언부(.h)만 구조에 표기함.
 
 ```text
-├─ Servo_UART_Control/
+├─ Day04_Task05
 │   ├── main.c       # UART 입력, PWM 설정 및 서보모터 제어
-└── README.md
+│   ├── README.md
 ```
 
 ---
