@@ -1,4 +1,4 @@
-# Motor_Control_REPORT
+# Day06_Task02
 
 > **광운대학교 로봇학부**
 > **작성자:** 김도훈
