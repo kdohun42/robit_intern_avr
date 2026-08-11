@@ -34,8 +34,7 @@ void ADC_Init(void)
 	DDRF = 0x00;                               // PF 입력
 	PORTF = 0x00;                              // Pull-up OFF
 	ADMUX = (1 << REFS0);                     // 기준전압 AVCC
-	ADCSRA = (1 << ADEN) | (1 << ADPS2) |
-	(1 << ADPS1) | (1 << ADPS0);     // ADC 분주비 128
+	ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);     // ADC 분주비 128
 }
 
 uint16_t ADC_Read(uint8_t ch)
@@ -106,7 +105,7 @@ void LED_Control(void)
 
 	for (i = 0; i < N; i++)
 	{
-		if (norm[i] >= 80)
+		if (raw[i] >= 0)
 		PORTA |= (1 << i);                 // 0.8 이상 ON
 		else
 		PORTA &= ~(1 << i);                // 0.8 미만 OFF
@@ -122,16 +121,7 @@ void UART_Print(void)
 
 	for (i = 0; i < N; i++)
 	{
-		sprintf(buf,
-		"IR%d : %4u / %4u / %4u / %4u / %u.%02u\r\n",
-		i + 1,
-		raw[i],
-		filter[i],
-		min[i],
-		max[i],
-		norm[i] / 100,
-		norm[i] % 100);
-
+		sprintf(buf, "%4u\r\n", raw[i]);
 		UART0_Tx(buf);
 	}
 }
@@ -139,20 +129,17 @@ void UART_Print(void)
 void LCD_Print(void)
 {
 	char buf[21];
-
-	sprintf(buf, "%u.%02u %u.%02u %u.%02u",
-	norm[0] / 100, norm[0] % 100,
-	norm[1] / 100, norm[1] % 100,
-	norm[2] / 100, norm[2] % 100);
-
+	for(int i = 0; i < 6; i++){
+	sprintf(buf, "%4u\r\n", raw[i]);
+	}
 	i2c_lcd_goto_xy(0, 0);
 	i2c_lcd_string(buf);                       // 위쪽 IR1~IR3
-
+/*
 	sprintf(buf, "%u.%02u %u.%02u %u.%02u",
 	norm[3] / 100, norm[3] % 100,
 	norm[4] / 100, norm[4] % 100,
 	norm[5] / 100, norm[5] % 100);
-
+*/
 	i2c_lcd_goto_xy(1, 0);
 	i2c_lcd_string(buf);                       // 아래쪽 IR4~IR6
 }
